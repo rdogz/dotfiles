@@ -1,0 +1,144 @@
+@import url("/home/two_b/.cache/wal/colors-waybar.css");
+
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    min-width: 0;
+    font-family: "0xProto Nerd Font Propo", "JetBrainsMono Nerd Font Propo", monospace;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    color: @foreground;
+    transition: none;
+}
+
+window#waybar {
+    background: @color0;
+    border-radius: 0;
+}
+
+/* ===== COMMON STYLES ===== */
+#waybar > * {
+    padding: 0 2px;
+}
+
+.module {
+    margin: 0 4px;
+    padding: 1px 4px;
+}
+
+.module-hoverable:hover {
+    color: @color4;
+}
+
+.pill-container {
+    background-color: @color0;
+    border-radius: 0px;
+    padding: 1px 6px;
+    margin: 1px 0;
+}
+
+/* ===== SPECIFIC MODULES ===== */
+/* Clock */
+#clock {
+  font-size: 13px;
+  font-weight: 900;
+}
+
+#custom-power{
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+#clock:hover {
+    color: @color4;
+}
+
+/* Workspaces */
+#workspaces button {
+    border-radius: 0px;
+    margin: 0 1px;
+    padding: 0 4px;
+    font-weight: 900;
+    transition: background-color 0.2s ease;
+}
+
+#workspaces button:first-child { margin-left: 0; }
+#workspaces button:last-child { margin-right: 0; }
+
+#workspaces button:hover {
+    background-color: @color8;
+}
+
+#workspaces button:hover label {
+    color: @color8;
+}
+
+#workspaces button.active {
+    background-color: @color1;
+}
+
+#workspaces button.active label {
+    color: @color4;
+}
+
+/* Window */
+#window {
+    font-weight: 500;
+    padding: 0 8px;
+    margin: 0 4px;
+    border-radius: 0px;
+    background-color: @background;
+    font-size: 11px;
+}
+
+/* ===== HOVER ===== */
+/* Network */
+#network:hover { color: @color4; }
+#network.disabled:hover { color: @color4; }
+#network.disconnected:hover { color: #ff0000 }
+
+#custom-power:hover{
+    color: #ff0000;
+}
+
+/* Other modules */
+#custom-brightness:hover { color: #ffff00; }
+#pulseaudio:hover { color: @color4; }
+#mpris:hover { color: @color4; }
+#bluetooth:hover { color: #0082FC; }
+
+/* ===== STATE INDICATORS ===== */
+/* Network states */
+#network.disconnected {
+    color: #ff0000;
+    opacity: 0.8;
+}
+
+#network.disabled {
+    color: #ff0000;
+    opacity: 0.6;
+}
+
+/* ===== TOOLTIPS ===== */
+tooltip {
+    background-color: @background;
+    color: @foreground;
+    border: 2px solid @color4;
+    padding: 6px 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+tooltip label {
+    font-size: 12px;
+    font-weight: 500;
+    color: @foreground;
+}
+
+
+/* ===== ANIMATIONS ===== */
+#workspaces button,
+.module-hoverable {
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
