@@ -1,0 +1,1 @@
+Integrate pywal colors to border. Or remove border.
