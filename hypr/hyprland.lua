@@ -1,0 +1,6 @@
+require("modules.animations")
+require("modules.windows")
+require("modules.binds")
+require("modules.input")
+require("modules.monitors")
+require("modules.autostart")
