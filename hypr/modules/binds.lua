@@ -23,7 +23,7 @@ hl.bind("SUPER + W", hl.dsp.exec_cmd(wallpaper))
 
 -- Static
 hl.bind("SUPER + D", hl.dsp.exec_cmd("discord"))
-hl.bind("SUPER + F", hl.dsp.exec_cmd("fullscreen"))
+hl.bind("SUPER + F", function() hl.dispatch(hl.dsp.window.fullscreen()) end)
 hl.bind("ALT + Q", hl.dsp.exec_cmd("killactive"))
 local closeWindowBind = hl.bind("ALT + Q", hl.dsp.window.close())
 

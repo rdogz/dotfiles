@@ -7,8 +7,8 @@ hl.config({
         border_size = 1,
 
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            active_border   = { colors = {"rgba(ffffffcc)"}, angle = 45 },
+            inactive_border = "rgba(00000099)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -21,8 +21,8 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 0,
-        rounding_power = 1,
+        rounding       = 15,
+        rounding_power = 4,
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,

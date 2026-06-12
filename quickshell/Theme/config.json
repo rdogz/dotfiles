@@ -1,0 +1,20 @@
+{
+  "theme": {
+    "palette": {
+      "bg": "0a0a19",
+      "bgAlpha": 0.9,
+      "surface": "0a0a19",
+      "ink": "c1c1c5",
+      "fillBase": "c1c1c5",
+      "fillAlpha": 0.08,
+      "fillStrongAlpha": 0.15,
+      "hairlineBase": "c1c1c5",
+      "hairlineAlpha": 0.1,
+      "border": "c1c1c5",
+      "borderAlpha": 0.14,
+      "accent": "224f62",
+      "accentInk": "f4f0f8",
+      "error": "674437"
+    }
+  }
+}
