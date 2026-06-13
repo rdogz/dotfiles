@@ -398,4 +398,49 @@ Singleton {
             connProc.running = true;
         }
     }
+
+    // ---- Network speeds ----
+    property string downloadSpeed: "0 B/s"
+    property string uploadSpeed: "0 B/s"
+    property var _prevRx: 0
+    property var _prevTx: 0
+
+    function _formatSpeed(bytes) {
+        if (bytes < 1024) return bytes + " B/s";
+        if (bytes < 1048576) return (bytes / 1024).toFixed(1) + " KB/s";
+        return (bytes / 1048576).toFixed(1) + " MB/s";
+    }
+
+    Process {
+        id: speedProc
+        command: ["cat", "/proc/net/dev"]
+        stdout: StdioCollector {
+            onStreamFinished: {
+                let rx = 0, tx = 0;
+                for (const line of text.split("\n")) {
+                    const trimmed = line.trim();
+                    // skip loopback and non-interface lines
+                    if (!trimmed || trimmed.startsWith("Inter") || trimmed.startsWith("face") || trimmed.startsWith("lo:"))
+                        continue;
+                    const parts = trimmed.split(/\s+/);
+                    if (parts.length < 10) continue;
+                    rx += parseInt(parts[1]) || 0;
+                    tx += parseInt(parts[9]) || 0;
+                }
+                if (root._prevRx > 0) {
+                    root.downloadSpeed = root._formatSpeed(rx - root._prevRx);
+                    root.uploadSpeed   = root._formatSpeed(tx - root._prevTx);
+                }
+                root._prevRx = rx;
+                root._prevTx = tx;
+            }
+        }
+    }
+
+    Timer {
+        interval: 1000
+        repeat: true
+        running: true
+        onTriggered: speedProc.running = true
+    }
 }

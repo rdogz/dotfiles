@@ -71,20 +71,20 @@ ColumnLayout {
                 }
                 Text {
                     Layout.fillWidth: true
-                    text: {
-                        if (NetworkService.ethernetBusy)
-                            return "Working…";
-                        if (row.connected)
-                            return "Connected";
-                        if (row.unavailable)
-                            return "Cable unplugged";
-                        return "Disconnected";
-                    }
-                    font.family: Theme.fonts.sans
-                    font.pixelSize: 11
-                    color: row.connected ? Theme.accentInk : Theme.textDim
-                    opacity: row.connected ? 0.8 : 1
-                    elide: Text.ElideRight
+                        text: {
+                            if (NetworkService.ethernetBusy)
+                                return "Working…";
+                            if (row.connected)
+                                return "↓ " + NetworkService.downloadSpeed + "  ↑ " + NetworkService.uploadSpeed;
+                            if (row.unavailable)
+                                return "Cable unplugged";
+                            return "Disconnected";
+                        }
+                        font.family: Theme.fonts.mono
+                        font.pixelSize: 11
+                        color: row.connected ? Theme.accentInk : Theme.textDim
+                        opacity: row.connected ? 0.8 : 1
+                        elide: Text.ElideRight                
                 }
             }
 
