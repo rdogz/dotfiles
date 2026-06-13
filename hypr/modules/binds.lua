@@ -19,6 +19,7 @@ hl.bind("SUPER + M", hl.dsp.exec_cmd(music))
 hl.bind("SUPER + A", hl.dsp.exec_cmd(audio))
 hl.bind("SUPER + A", hl.dsp.exec_cmd(audio))
 hl.bind("SUPER + W", hl.dsp.exec_cmd(wallpaper))
+hl.bind("CTRL + SHIFT + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
 
 -- Static
